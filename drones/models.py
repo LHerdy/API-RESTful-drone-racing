@@ -57,5 +57,3 @@ class Competicao(models.Model):
 
     class Meta:
         ordering = ('-altura_em_pes',)
-
-
