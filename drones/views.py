@@ -54,3 +54,13 @@ class CompetitionDetail(generics.RetrieveUpdateDestroyAPIView):
     name = 'competition-detail'
 
 
+class ApiRoot(generics.GenericAPIView):
+    name = 'api-root'
+
+    def get(self, request, *args, **kwargs):
+        return Response({
+            'drone-categorias': reverse(DroneCategoria.nome, request=request),
+            'drones': reverse(Drone.nome, request=request),
+            'pilotos': reverse(Piloto.nome, request=request),
+            'competicoes': reverse(Competicao.nome, request=request)
+            })
